@@ -1,0 +1,17 @@
+The solution involves using a more robust selector that's less susceptible to whitespace-only text nodes.  Instead of relying on `:first-of-type`, we can use a direct child selector combined with `:nth-child(1)`:
+
+```css
+.container {
+  background-color: lightblue;
+}
+
+.container > p {
+  color: red;
+}
+
+.container > p:nth-child(1) {
+  color: blue;
+}
+```
+
+This solution targets only the direct child paragraph elements of the `.container` and applies the blue color specifically to the first one.  This method avoids the issues caused by whitespace-only text nodes, making the behavior more consistent across different browsers.
