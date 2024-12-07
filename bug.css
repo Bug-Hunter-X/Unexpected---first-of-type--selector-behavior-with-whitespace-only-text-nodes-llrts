@@ -1,0 +1,17 @@
+The following CSS code snippet demonstrates an unusual issue: a seemingly simple selector fails to work as expected.
+
+```css
+.container {
+  background-color: lightblue;
+}
+
+.container p {
+  color: red;
+}
+
+.container p:first-of-type {
+  color: blue;
+}
+```
+
+The intention is that the first paragraph within the `container` should be blue, and the rest should be red.  However, this might not work if the first paragraph has any whitespace-only text nodes before or after the visible text.  In some browsers (especially older ones or with specific rendering quirks), this can cause the `:first-of-type` selector to not apply to the expected paragraph.
